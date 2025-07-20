@@ -2,40 +2,72 @@ using UnityEngine;
 
 public class ShipController : MonoBehaviour
 {
-    public float moveForce = 10f;
-    public float turnSpeed = 200f;
-    public float driftDamp = 2f;
-    private Rigidbody2D rb;
-    [HideInInspector] public bool canMove = false;
+    [Header("Ship Settings")]
+    [SerializeField] float driftFactor = 0.95f;
+    [SerializeField] float turnSpeed = 5f;
+    [SerializeField] float maxSpeed = 500f;
+    [SerializeField] float speed = 100;
 
-    void Start()
+    //local vars
+    float forwardInput;
+    float steeringInput;
+    float rotationAngle;
+
+    //Component
+    Rigidbody2D shipRB;
+    GameObject gunRB;
+
+    [HideInInspector] public bool canMove;
+
+    private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        rb.linearDamping = driftDamp; 
+        shipRB = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    private void Update()
     {
-        if (!canMove)
-        {
-            rb.angularVelocity = 0f;
-            return;
-        }
+        if (!canMove) { forwardInput = steeringInput = 0; return; }
 
-        float moveInput = Input.GetAxisRaw("Vertical");
-        float turnInput = -Input.GetAxisRaw("Horizontal");
+        ProcessInput();
+    }
 
-        if (moveInput != 0)
-            rb.AddForce(transform.up * moveInput * moveForce);
+    void FixedUpdate()
+    {
+        if (!canMove) return;
 
-        if (turnInput != 0)
+        ApplyEngineForce();
+        killOrthogonalVelocity();
+        ApplySteering();
+    }
+
+    void ApplyEngineForce()
+    {
+        if (shipRB.linearVelocity.sqrMagnitude < maxSpeed * maxSpeed)
         {
-            float rotation = rb.rotation + turnInput * turnSpeed * Time.deltaTime;
-            rb.MoveRotation(rotation);
+            Vector2 engineForceVector = transform.up * speed * forwardInput;
+
+            shipRB.AddForce(engineForceVector, ForceMode2D.Force);
         }
-        else
-        {
-            rb.angularVelocity = 0f; // No rotation if no input
-        }
+    }
+
+    void ApplySteering()
+    {
+        rotationAngle -= steeringInput * turnSpeed;
+
+        shipRB.MoveRotation(rotationAngle);
+    }
+    void killOrthogonalVelocity()
+    {
+        Vector2 forwardVelocity = transform.up * Vector2.Dot(shipRB.linearVelocity, transform.up);
+        Vector2 rightVelocity = transform.right * Vector2.Dot(shipRB.linearVelocity, transform.right);
+
+        shipRB.linearVelocity = forwardVelocity + rightVelocity * driftFactor;
+    }
+
+    private void ProcessInput()
+    {
+        Vector2 inputVector = Vector2.zero;
+        forwardInput = Input.GetAxis("Vertical");
+        steeringInput = Input.GetAxis("Horizontal");
     }
 }
