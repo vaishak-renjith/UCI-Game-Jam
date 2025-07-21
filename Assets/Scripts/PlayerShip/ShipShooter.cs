@@ -4,12 +4,14 @@ using System.Collections.Generic;
 public class ShipShooter : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    public float bulletSpeed = 30f;
-    public Transform firePoint;
+    public float bulletSpeed = 30f; // Might be good to set it faster than ships max speed
+    public Transform[] firePoints; // Multiple Firepoints can now be added
     public float screenBuffer = 1f;
     public float bulletOffset = 0.5f; // Distance behind the ship
     public float fireRate = 0.2f; // Seconds between shots
     [HideInInspector] public bool canShoot = false; // Only active ship can shoot
+
+    private Rigidbody2D shipRB;
 
     private List<GameObject> bullets = new List<GameObject>();
     private float fireTimer = 0f;
@@ -17,13 +19,15 @@ public class ShipShooter : MonoBehaviour
     void Start()
     {
         // Initialize firePoint to the center if not set
-        if (firePoint == null)
-        {
-            GameObject fp = new GameObject("FirePoint");
-            fp.transform.parent = transform;
-            fp.transform.localPosition = Vector3.zero;
-            firePoint = fp.transform;
-        }
+        //if (firePoint == null)
+        //{
+        //    GameObject fp = new GameObject("FirePoint");
+        //    fp.transform.parent = transform;
+        //    fp.transform.localPosition = Vector3.zero;
+        //    firePoint = fp.transform;
+        //}
+
+        shipRB = GetComponentInParent<Rigidbody2D>();
     }
 
     void Update()
@@ -57,14 +61,19 @@ public class ShipShooter : MonoBehaviour
     void Shoot()
     {
         // Place bullet behind the ship (along negative up direction)
-        Vector2 spawnPos = (Vector2)firePoint.position - (Vector2)transform.up * bulletOffset;
-        GameObject bullet = Instantiate(bulletPrefab, spawnPos, Quaternion.Euler(0, 0, transform.eulerAngles.z));
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        if (rb != null)
+        // multiple firepoints can be added
+        foreach (Transform fp in firePoints)
         {
-            rb.linearVelocity = (Vector2)transform.up * bulletSpeed;
+            Vector2 spawnPos = (Vector2)fp.position - (Vector2)transform.up * bulletOffset;
+            GameObject bullet = Instantiate(bulletPrefab, spawnPos, Quaternion.Euler(0, 0, transform.eulerAngles.z));
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                // Adds ship's velocity to keep bullet infront 
+                rb.linearVelocity = (Vector2)transform.up * bulletSpeed + shipRB.linearVelocity;
+            }
+            bullets.Add(bullet);
         }
-        bullets.Add(bullet);
     }
 
     bool IsOffScreen(Vector2 position)

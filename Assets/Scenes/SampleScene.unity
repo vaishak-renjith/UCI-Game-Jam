@@ -267,7 +267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 5440427008945247461, guid: 733a92134148ab54f8cc7e325137e312, type: 3}
   bulletSpeed: 10
-  firePoint: {fileID: 0}
+  firePoints: []
   screenBuffer: 1
   bulletOffset: 0.5
   fireRate: 0.2
@@ -465,6 +465,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1111743531}
+  - component: {fileID: 1111743532}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -487,6 +488,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1111743532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111743530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796355787d1dff0489ce5d3e04988a04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - {fileID: 4851589772586134762, guid: 354f6650c1612af468508b552edc7d60, type: 3}
+  virtualCamera: {fileID: 781320480}
+  spawnInterval: 2
 --- !u!1 &1145223757
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,6 +561,37 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -41.832355, y: -6.8052597, z: -2.185947}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1515246670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1515246671}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1515246671
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515246670}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -49.096718, y: -7.406204, z: -2.2888148}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -763,6 +811,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4162160380427916029, guid: 6bfea1d46a0b2da4da721d79a892d4fb, type: 3}
+      propertyPath: bulletSpeed
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5635886722969670321, guid: 6bfea1d46a0b2da4da721d79a892d4fb, type: 3}
       propertyPath: m_Name
       value: Ship1
@@ -835,3 +887,4 @@ SceneRoots:
   - {fileID: 2810308553360034272}
   - {fileID: 1145223758}
   - {fileID: 1111743531}
+  - {fileID: 1515246671}
