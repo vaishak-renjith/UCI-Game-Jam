@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+[RequireComponent(typeof(Stats))]
 public class ShipShooter : MonoBehaviour
 {
     public GameObject bulletPrefab;
@@ -16,7 +17,9 @@ public class ShipShooter : MonoBehaviour
     private List<GameObject> bullets = new List<GameObject>();
     private float fireTimer = 0f;
 
-    void Start()
+    public Stats stats;
+
+    void Awake()
     {
         // Initialize firePoint to the center if not set
         //if (firePoint == null)
@@ -28,6 +31,7 @@ public class ShipShooter : MonoBehaviour
         //}
 
         shipRB = GetComponentInParent<Rigidbody2D>();
+        stats = GetComponent<Stats>();
     }
 
     void Update()
@@ -46,16 +50,6 @@ public class ShipShooter : MonoBehaviour
         {
             fireTimer = fireRate; // Ready to shoot immediately when pressed again
         }
-
-        // Destroy bullets that go off screen
-        for (int i = bullets.Count - 1; i >= 0; i--)
-        {
-            if (IsOffScreen((Vector2)bullets[i].transform.position))
-            {
-                Destroy(bullets[i]);
-                bullets.RemoveAt(i);
-            }
-        }
     }
 
     void Shoot()
@@ -66,6 +60,9 @@ public class ShipShooter : MonoBehaviour
         {
             Vector2 spawnPos = (Vector2)fp.position - (Vector2)transform.up * bulletOffset;
             GameObject bullet = Instantiate(bulletPrefab, spawnPos, Quaternion.Euler(0, 0, transform.eulerAngles.z));
+
+            bullet.GetComponent<Bullet>().damage = stats.damage;
+
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             if (rb != null)
             {

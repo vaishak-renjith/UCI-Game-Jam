@@ -1,12 +1,10 @@
 using UnityEngine;
 
+
 public class ShipController : MonoBehaviour
 {
     [Header("Ship Settings")]
-    [SerializeField] float driftFactor = 0.95f;
-    [SerializeField] float turnSpeed = 5f;
-    [SerializeField] float maxSpeed = 500f;
-    [SerializeField] float speed = 100;
+    [SerializeField] StatsSO playerStats;
 
     //local vars
     float forwardInput;
@@ -42,9 +40,9 @@ public class ShipController : MonoBehaviour
 
     void ApplyEngineForce()
     {
-        if (shipRB.linearVelocity.sqrMagnitude < maxSpeed * maxSpeed)
+        if (shipRB.linearVelocity.sqrMagnitude < playerStats.maxSpeed * playerStats.maxSpeed)
         {
-            Vector2 engineForceVector = transform.up * speed * forwardInput;
+            Vector2 engineForceVector = transform.up * playerStats.acceleration * forwardInput;
 
             shipRB.AddForce(engineForceVector, ForceMode2D.Force);
         }
@@ -52,7 +50,7 @@ public class ShipController : MonoBehaviour
 
     void ApplySteering()
     {
-        rotationAngle -= steeringInput * turnSpeed;
+        rotationAngle -= steeringInput * playerStats.turnSpeed;
 
         shipRB.MoveRotation(rotationAngle);
     }
@@ -61,7 +59,7 @@ public class ShipController : MonoBehaviour
         Vector2 forwardVelocity = transform.up * Vector2.Dot(shipRB.linearVelocity, transform.up);
         Vector2 rightVelocity = transform.right * Vector2.Dot(shipRB.linearVelocity, transform.right);
 
-        shipRB.linearVelocity = forwardVelocity + rightVelocity * driftFactor;
+        shipRB.linearVelocity = forwardVelocity + rightVelocity * playerStats.driftFactor;
     }
 
     private void ProcessInput()

@@ -1,41 +1,61 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyPathing : MonoBehaviour
 {
-    [SerializeField] private float speed;
-    private GameObject[] playerObjects;
-    private GameObject target;
 
-    void Start()
+    Rigidbody2D shipRB;
+    Transform player;
+    Vector2 directionToPlayer;
+
+    Stats stats;
+
+    void Awake()
     {
-        playerObjects = GameObject.FindGameObjectsWithTag("Player");
-        target = GetClosestPlayer();
+        shipRB = GetComponent<Rigidbody2D>();
+        stats = GetComponent<Stats>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    void Update()
+    // Update is called once per frame
+    void FixedUpdate()
     {
-        if (target != null)
+        ApplyEngineForce();
+        killOrthogonalVelocity();
+        UpdateTargetDirection();
+        RotateTowardsTarget();
+
+    }
+
+    void ApplyEngineForce()
+    {
+        if (shipRB.linearVelocity.sqrMagnitude < stats.maxSpeed)
         {
-            Vector3 direction = (target.transform.position - transform.position).normalized;
-            transform.position += direction * speed * Time.deltaTime;
+            Vector2 engineForceVector = transform.up * stats.acceleration;
+
+            shipRB.AddForce(engineForceVector, ForceMode2D.Force);
         }
     }
 
-    public GameObject GetClosestPlayer()
+    void killOrthogonalVelocity()
     {
-        GameObject closestPlayer = null;
-        float closestDistance = float.MaxValue;
+        Vector2 forwardVelocity = transform.up * Vector2.Dot(shipRB.linearVelocity, transform.up);
+        Vector2 rightVelocity = transform.right * Vector2.Dot(shipRB.linearVelocity, transform.right);
 
-        foreach (GameObject player in playerObjects)
-        {
-            float distance = Vector2.Distance(player.transform.position, transform.position);
-            if (distance < closestDistance)
-            {
-                closestDistance = distance;
-                closestPlayer = player;
-            }
-        }
+        shipRB.linearVelocity = forwardVelocity + rightVelocity * stats.driftFactor;
+    }
 
-        return closestPlayer;
+    void UpdateTargetDirection()
+    {
+        Vector2 enemyToPlayer = player.position - transform.position;
+        directionToPlayer = enemyToPlayer.normalized;
+    }
+
+    void RotateTowardsTarget()
+    {
+        Quaternion targetRotation = Quaternion.LookRotation(transform.forward, directionToPlayer);
+        Quaternion rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, stats.turnSpeed * Time.deltaTime);
+
+        shipRB.SetRotation(rotation);
     }
 }

@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 42477857}
   - component: {fileID: 42477856}
   - component: {fileID: 42477860}
+  - component: {fileID: 42477861}
   m_Layer: 0
   m_Name: Ship2
   m_TagString: Untagged
@@ -178,10 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50c9f003c21db054489bdd6b79d43784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  driftFactor: 0.95
-  turnSpeed: 5
-  maxSpeed: 100
-  speed: 20
+  playerStats: {fileID: 0}
   canMove: 0
 --- !u!212 &42477858
 SpriteRenderer:
@@ -272,6 +270,32 @@ MonoBehaviour:
   bulletOffset: 0.5
   fireRate: 0.2
   canShoot: 0
+  stats: {fileID: 0}
+--- !u!114 &42477861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42477855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c3b325abc7572f48a69a2d48149376c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 57d25ef4dc967d8429b0c1b93a8db7f8, type: 2}
+  Name: 
+  turnSpeed: 2
+  maxSpeed: 100
+  acceleration: 20
+  driftFactor: 0.95
+  currentHealth: 0
+  damage: 0
+--- !u!1 &155029189 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5635886722969670321, guid: 6bfea1d46a0b2da4da721d79a892d4fb, type: 3}
+  m_PrefabInstance: {fileID: 3891943448440030169}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,6 +385,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7313373795745392197, guid: 6bfea1d46a0b2da4da721d79a892d4fb, type: 3}
   m_PrefabInstance: {fileID: 3891943448440030169}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &755467186 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2237069084645517089, guid: 6bfea1d46a0b2da4da721d79a892d4fb, type: 3}
+  m_PrefabInstance: {fileID: 3891943448440030169}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155029189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c3b325abc7572f48a69a2d48149376c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!70 &755467187
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155029189}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 10.12, y: 12.52}
+  m_Direction: 0
 --- !u!1 &781320478
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,7 +760,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 5848694108575156662, guid: 455fd0ccc0663ff4b81c9a8359ec419c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -812,9 +884,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4162160380427916029, guid: 6bfea1d46a0b2da4da721d79a892d4fb, type: 3}
-      propertyPath: bulletSpeed
-      value: 100
-      objectReference: {fileID: 0}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 755467186}
     - target: {fileID: 5635886722969670321, guid: 6bfea1d46a0b2da4da721d79a892d4fb, type: 3}
       propertyPath: m_Name
       value: Ship1
@@ -870,7 +942,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5635886722969670321, guid: 6bfea1d46a0b2da4da721d79a892d4fb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 755467187}
   m_SourcePrefab: {fileID: 100100000, guid: 6bfea1d46a0b2da4da721d79a892d4fb, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -243,12 +243,13 @@ GameObject:
   - component: {fileID: 7313373795745392197}
   - component: {fileID: 6793686222892917698}
   - component: {fileID: 1838342999490623884}
+  - component: {fileID: 2237069084645517089}
   - component: {fileID: 5552238328391735367}
   - component: {fileID: 4162160380427916029}
   - component: {fileID: 8983121195834638800}
   m_Layer: 0
   m_Name: PlayerShip
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -353,6 +354,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2237069084645517089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5635886722969670321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c3b325abc7572f48a69a2d48149376c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 57d25ef4dc967d8429b0c1b93a8db7f8, type: 2}
+  damage: 0
 --- !u!114 &5552238328391735367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,10 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50c9f003c21db054489bdd6b79d43784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  driftFactor: 0.95
-  turnSpeed: 5
-  maxSpeed: 100
-  speed: 20
+  playerStats: {fileID: 11400000, guid: 57d25ef4dc967d8429b0c1b93a8db7f8, type: 2}
   canMove: 0
 --- !u!114 &4162160380427916029
 MonoBehaviour:
@@ -383,7 +395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 255697200406646871, guid: 484cda9759438864282f08a718ca90a6, type: 3}
-  bulletSpeed: 30
+  bulletSpeed: 100
   firePoints:
   - {fileID: 3108994499352398848}
   - {fileID: 3000227745494405381}

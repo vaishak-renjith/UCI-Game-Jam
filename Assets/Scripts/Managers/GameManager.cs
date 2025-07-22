@@ -3,6 +3,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public int level = 1;
+    public int enemyAmount => 5 + (level * 2);
+    public int enemyLeft;
+
+    private EnemySpawner enemySpawner;
 
     public static GameManager Instance;
     void Awake()
@@ -14,6 +18,8 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
+
+        enemySpawner = FindAnyObjectByType<EnemySpawner>();
     }
 
     void Update()
