@@ -1,25 +1,32 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
     public List<ShopItem> shopItems; // Use ShopItemData instead of GameObject
     private List<ShopItem> activeShopItems = new List<ShopItem>();
+    public TextMeshProUGUI promptText;
+
     public int currency;
 
     void Start()
     {
+        promptText.text = "dddddd";
         DisplayShopItems(new Vector2(0, 0), 30.0f); // Example position and spacing
     }
 
     void Update()
     {
+        promptText.text = "";
         GameObject player = GameObject.FindWithTag("Player");
         if (player != null)
         {
             foreach (ShopItem item in activeShopItems)
             {
-                PromptBuy(item, player);
+                if (PromptBuy(item, player))
+                    break;
             }
         }   
     }
@@ -58,19 +65,19 @@ public class Shop : MonoBehaviour
     }
 
     // if player is close to item, prompt to buy with E
-    public void PromptBuy(ShopItem item, GameObject player)
+    public bool PromptBuy(ShopItem item, GameObject player)
     {
         float distance = Vector2.Distance(item.transform.position, player.transform.position);
         if (distance < 15f)
         {
-            // Display prompt with UI text (replace with your UI logic)
-            Debug.Log($"Press E to buy {item.name} for {item.GetComponent<ShopItem>().itemData.cost}");
-
+            promptText.text = $"Press E to buy {item.itemData.itemName} for {item.itemData.cost} currency";
             if (Input.GetKeyDown(KeyCode.E))
             {
                 BuyItem(item);
             }
+            return true; // Prompt was shown
         }
+        return false; // Not in range
     }
 
     public void BuyItem(ShopItem item)
