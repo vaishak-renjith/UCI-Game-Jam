@@ -25,11 +25,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        spawnTimer += Time.deltaTime;
-        if (spawnTimer >= spawnInterval)
-        {
-            enemySpawner.SpawnEnemyAtEdge();
-            spawnTimer = 0f;
-        }
+        // spawnTimer += Time.deltaTime;
+        // if (spawnTimer >= spawnInterval)
+        // {
+        //     enemySpawner.SpawnEnemyAtEdge();
+        //     spawnTimer = 0f;
+        // }
     }
 }

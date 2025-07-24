@@ -10,6 +10,7 @@ public class Stats : MonoBehaviour
     public float driftFactor = .95f;
 
     public int currentHealth = 100;
+    [SerializeField] private Healthbar healthbar;
 
     public int damage = 10;
     public float fireRate = 0.2f;
@@ -32,6 +33,7 @@ public class Stats : MonoBehaviour
         driftFactor = stats.driftFactor;
 
         currentHealth = stats.maxHealth;
+        healthbar.UpdateHealth(stats.maxHealth, currentHealth);
 
         damage = stats.damage;
         fireRate = stats.fireRate;
@@ -41,7 +43,8 @@ public class Stats : MonoBehaviour
     {
         Debug.Log(damage);
         currentHealth -= damage;
-
+        healthbar.UpdateHealth(stats.maxHealth, currentHealth);
+            
         if (currentHealth < 0) Die();
     }
 

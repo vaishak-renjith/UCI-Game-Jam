@@ -367,7 +367,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 57d25ef4dc967d8429b0c1b93a8db7f8, type: 2}
-  damage: 0
+  Name: 
+  turnSpeed: 2
+  maxSpeed: 100
+  acceleration: 20
+  driftFactor: 0.95
+  currentHealth: 100
+  healthbar: {fileID: 0}
+  damage: 5
+  fireRate: 0.2
+  currency: 0
 --- !u!114 &5552238328391735367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,9 +409,8 @@ MonoBehaviour:
   - {fileID: 3108994499352398848}
   - {fileID: 3000227745494405381}
   screenBuffer: 1
-  bulletOffset: 0.5
-  fireRate: 0.2
   canShoot: 0
+  stats: {fileID: 0}
 --- !u!114 &8983121195834638800
 MonoBehaviour:
   m_ObjectHideFlags: 0
