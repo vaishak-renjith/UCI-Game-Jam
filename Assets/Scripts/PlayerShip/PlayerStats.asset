@@ -17,3 +17,5 @@ MonoBehaviour:
   maxSpeed: 100
   acceleration: 20
   driftFactor: 0.95
+  maxHealth: 100
+  damage: 10

@@ -6,7 +6,8 @@ public class GameManager : MonoBehaviour
     public int enemyAmount => 5 + (level * 2);
     public int enemyLeft;
 
-    private EnemySpawner enemySpawner;
+
+    [SerializeField] EnemySpawner enemySpawner;
 
     public static GameManager Instance;
     void Awake()
@@ -24,6 +25,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
+        spawnTimer += Time.deltaTime;
+        if (spawnTimer >= spawnInterval)
+        {
+            enemySpawner.SpawnEnemyAtEdge();
+            spawnTimer = 0f;
+        }
     }
 }

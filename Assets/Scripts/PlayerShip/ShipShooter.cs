@@ -8,13 +8,10 @@ public class ShipShooter : MonoBehaviour
     public float bulletSpeed = 30f; // Might be good to set it faster than ships max speed
     public Transform[] firePoints; // Multiple Firepoints can now be added
     public float screenBuffer = 1f;
-    public float bulletOffset = 0.5f; // Distance behind the ship
-    public float fireRate = 0.2f; // Seconds between shots
     [HideInInspector] public bool canShoot = false; // Only active ship can shoot
 
     private Rigidbody2D shipRB;
 
-    private List<GameObject> bullets = new List<GameObject>();
     private float fireTimer = 0f;
 
     public Stats stats;
@@ -40,7 +37,7 @@ public class ShipShooter : MonoBehaviour
 
         if (canShoot && Input.GetKey(KeyCode.Space))
         {
-            if (fireTimer >= fireRate)
+            if (fireTimer >= stats.fireRate)
             {
                 Shoot();
                 fireTimer = 0f;
@@ -48,7 +45,7 @@ public class ShipShooter : MonoBehaviour
         }
         else if (!Input.GetKey(KeyCode.Space))
         {
-            fireTimer = fireRate; // Ready to shoot immediately when pressed again
+            fireTimer = stats.fireRate; // Ready to shoot immediately when pressed again
         }
     }
 
@@ -58,10 +55,13 @@ public class ShipShooter : MonoBehaviour
         // multiple firepoints can be added
         foreach (Transform fp in firePoints)
         {
-            Vector2 spawnPos = (Vector2)fp.position - (Vector2)transform.up * bulletOffset;
+            Vector2 spawnPos = (Vector2)fp.position - (Vector2)transform.up;
             GameObject bullet = Instantiate(bulletPrefab, spawnPos, Quaternion.Euler(0, 0, transform.eulerAngles.z));
-
+            
             bullet.GetComponent<Bullet>().damage = stats.damage;
+            bullet.GetComponent<Bullet>().owner = gameObject.tag;
+
+
 
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             if (rb != null)
@@ -69,14 +69,6 @@ public class ShipShooter : MonoBehaviour
                 // Adds ship's velocity to keep bullet infront 
                 rb.linearVelocity = (Vector2)transform.up * bulletSpeed + shipRB.linearVelocity;
             }
-            bullets.Add(bullet);
         }
-    }
-
-    bool IsOffScreen(Vector2 position)
-    {
-        Vector2 screenPos = Camera.main.WorldToViewportPoint(position);
-        return screenPos.x < -screenBuffer || screenPos.x > 1 + screenBuffer ||
-               screenPos.y < -screenBuffer || screenPos.y > 1 + screenBuffer;
     }
 }

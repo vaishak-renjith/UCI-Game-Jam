@@ -6,21 +6,14 @@ public class EnemySpawner : MonoBehaviour
 {
     public List<GameObject> enemyPrefabs;
     public CinemachineCamera virtualCamera;
-    public float spawnInterval = 2f;
 
-    private float timer = 0f;
 
     void Update()
     {
-        timer += Time.deltaTime;
-        if (timer >= spawnInterval)
-        {
-            SpawnEnemyAtEdge();
-            timer = 0f;
-        }
+
     }
 
-    void SpawnEnemyAtEdge()
+    public void SpawnEnemyAtEdge()
     {
         if (enemyPrefabs.Count == 0 || virtualCamera == null) return;
 

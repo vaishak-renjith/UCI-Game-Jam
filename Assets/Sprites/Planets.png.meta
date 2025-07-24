@@ -1,43 +1,43 @@
 fileFormatVersion: 2
-guid: 33b11ced68d02754eb0b972d53045e76
+guid: d879277bb6a48d4428017b5165b9feab
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4211507809734622168
-    second: pixil-frame-0_-_2025-07-21T192142.757_0
+      213: 6578029921566799198
+    second: Planets_0
   - first:
-      213: -4988875889572860811
-    second: pixil-frame-0_-_2025-07-21T192142.757_1
+      213: -4762131440615872945
+    second: Planets_1
   - first:
-      213: -3466082694437341742
-    second: pixil-frame-0_-_2025-07-21T192142.757_2
+      213: 1337643087485978474
+    second: Planets_2
   - first:
-      213: -3770842033083392021
-    second: pixil-frame-0_-_2025-07-21T192142.757_3
+      213: -7671769539438501261
+    second: Planets_3
   - first:
-      213: 827094852948966149
-    second: pixil-frame-0_-_2025-07-21T192142.757_4
+      213: 1120779272971944614
+    second: Planets_4
   - first:
-      213: -4401197202640132376
-    second: pixil-frame-0_-_2025-07-21T192142.757_5
+      213: -3780951082168270174
+    second: Planets_5
   - first:
-      213: -8035181775332468862
-    second: pixil-frame-0_-_2025-07-21T192142.757_6
+      213: -7711649549513325243
+    second: Planets_6
   - first:
-      213: -3033355421112739162
-    second: pixil-frame-0_-_2025-07-21T192142.757_7
+      213: -983833713556717725
+    second: Planets_7
   - first:
-      213: -1269656437768749876
-    second: pixil-frame-0_-_2025-07-21T192142.757_8
+      213: 7532323280700614678
+    second: Planets_8
   - first:
-      213: 3824572171414103879
-    second: pixil-frame-0_-_2025-07-21T192142.757_9
+      213: -1786810640380430630
+    second: Planets_9
   - first:
-      213: 6756827574141298831
-    second: pixil-frame-0_-_2025-07-21T192142.757_10
+      213: 3854864651819781716
+    second: Planets_10
   - first:
-      213: 2865751258919908490
-    second: pixil-frame-0_-_2025-07-21T192142.757_11
+      213: -293121060740791323
+    second: Planets_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -146,7 +146,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pixil-frame-0_-_2025-07-21T192142.757_0
+      name: Planets_0
       rect:
         serializedVersion: 2
         x: 5
@@ -161,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8240cf7e5f7bd85c0800000000000000
-      internalID: -4211507809734622168
+      spriteID: e5531ec9c5bd94b50800000000000000
+      internalID: 6578029921566799198
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixil-frame-0_-_2025-07-21T192142.757_1
+      name: Planets_1
       rect:
         serializedVersion: 2
         x: 30
@@ -183,14 +183,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 57caf758fc3f3cab0800000000000000
-      internalID: -4988875889572860811
+      spriteID: f462f548fa289edb0800000000000000
+      internalID: -4762131440615872945
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixil-frame-0_-_2025-07-21T192142.757_2
+      name: Planets_2
       rect:
         serializedVersion: 2
         x: 53
@@ -205,14 +205,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d5feeb472006efc0800000000000000
-      internalID: -3466082694437341742
+      spriteID: a67cbd90d43409210800000000000000
+      internalID: 1337643087485978474
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixil-frame-0_-_2025-07-21T192142.757_3
+      name: Planets_3
       rect:
         serializedVersion: 2
         x: 75
@@ -227,14 +227,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: befd3f156274babc0800000000000000
-      internalID: -3770842033083392021
+      spriteID: 3722b1b2046688590800000000000000
+      internalID: -7671769539438501261
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixil-frame-0_-_2025-07-21T192142.757_4
+      name: Planets_4
       rect:
         serializedVersion: 2
         x: 98
@@ -249,14 +249,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 50bb399f26e6a7b00800000000000000
-      internalID: 827094852948966149
+      spriteID: 6a20d158fcecd8f00800000000000000
+      internalID: 1120779272971944614
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixil-frame-0_-_2025-07-21T192142.757_5
+      name: Planets_5
       rect:
         serializedVersion: 2
         x: 117
@@ -271,14 +271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8e62136767ecbe2c0800000000000000
-      internalID: -4401197202640132376
+      spriteID: 2a24b3ae50d578bc0800000000000000
+      internalID: -3780951082168270174
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixil-frame-0_-_2025-07-21T192142.757_6
+      name: Planets_6
       rect:
         serializedVersion: 2
         x: 3
@@ -293,14 +293,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2879d9f5fbc4d7090800000000000000
-      internalID: -8035181775332468862
+      spriteID: 54505f0c797baf490800000000000000
+      internalID: -7711649549513325243
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixil-frame-0_-_2025-07-21T192142.757_7
+      name: Planets_7
       rect:
         serializedVersion: 2
         x: 28
@@ -315,14 +315,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6aad11fd05b57e5d0800000000000000
-      internalID: -3033355421112739162
+      spriteID: 36ff5693378b852f0800000000000000
+      internalID: -983833713556717725
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixil-frame-0_-_2025-07-21T192142.757_8
+      name: Planets_8
       rect:
         serializedVersion: 2
         x: 49
@@ -337,14 +337,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ccc71006236416ee0800000000000000
-      internalID: -1269656437768749876
+      spriteID: 618a097ad10388860800000000000000
+      internalID: 7532323280700614678
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixil-frame-0_-_2025-07-21T192142.757_9
+      name: Planets_9
       rect:
         serializedVersion: 2
         x: 72
@@ -359,14 +359,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7476bfe502c931530800000000000000
-      internalID: 3824572171414103879
+      spriteID: ad67c338039f337e0800000000000000
+      internalID: -1786810640380430630
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixil-frame-0_-_2025-07-21T192142.757_10
+      name: Planets_10
       rect:
         serializedVersion: 2
         x: 94
@@ -381,14 +381,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f88a14521e215cd50800000000000000
-      internalID: 6756827574141298831
+      spriteID: 45e8de41afa3f7530800000000000000
+      internalID: 3854864651819781716
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixil-frame-0_-_2025-07-21T192142.757_11
+      name: Planets_11
       rect:
         serializedVersion: 2
         x: 116
@@ -403,8 +403,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a84bc8a269135c720800000000000000
-      internalID: 2865751258919908490
+      spriteID: 5e30c52c2ff9eebf0800000000000000
+      internalID: -293121060740791323
       vertices: []
       indices: 
       edges: []
@@ -423,18 +423,18 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pixil-frame-0_-_2025-07-21T192142.757_0: -4211507809734622168
-      pixil-frame-0_-_2025-07-21T192142.757_1: -4988875889572860811
-      pixil-frame-0_-_2025-07-21T192142.757_10: 6756827574141298831
-      pixil-frame-0_-_2025-07-21T192142.757_11: 2865751258919908490
-      pixil-frame-0_-_2025-07-21T192142.757_2: -3466082694437341742
-      pixil-frame-0_-_2025-07-21T192142.757_3: -3770842033083392021
-      pixil-frame-0_-_2025-07-21T192142.757_4: 827094852948966149
-      pixil-frame-0_-_2025-07-21T192142.757_5: -4401197202640132376
-      pixil-frame-0_-_2025-07-21T192142.757_6: -8035181775332468862
-      pixil-frame-0_-_2025-07-21T192142.757_7: -3033355421112739162
-      pixil-frame-0_-_2025-07-21T192142.757_8: -1269656437768749876
-      pixil-frame-0_-_2025-07-21T192142.757_9: 3824572171414103879
+      Planets_0: 6578029921566799198
+      Planets_1: -4762131440615872945
+      Planets_10: 3854864651819781716
+      Planets_11: -293121060740791323
+      Planets_2: 1337643087485978474
+      Planets_3: -7671769539438501261
+      Planets_4: 1120779272971944614
+      Planets_5: -3780951082168270174
+      Planets_6: -7711649549513325243
+      Planets_7: -983833713556717725
+      Planets_8: 7532323280700614678
+      Planets_9: -1786810640380430630
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Grunt
   m_EditorClassIdentifier: 
   Name: 
-  turnSpeed: 2
-  maxSpeed: 100
-  acceleration: 10
+  turnSpeed: 50
+  maxSpeed: 500
+  acceleration: 50
   driftFactor: 0.95
+  maxHealth: 100
+  damage: 10

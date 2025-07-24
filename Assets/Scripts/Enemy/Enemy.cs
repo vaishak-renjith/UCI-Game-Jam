@@ -7,6 +7,7 @@ public class Enemy : Stats
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        base.Initialize();
     }
     void Update()
     {

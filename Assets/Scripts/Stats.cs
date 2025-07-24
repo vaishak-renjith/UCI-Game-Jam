@@ -12,6 +12,7 @@ public class Stats : MonoBehaviour
     public int currentHealth = 100;
 
     public int damage = 10;
+    public float fireRate = 0.2f;
 
     void Awake()
     {
@@ -23,7 +24,7 @@ public class Stats : MonoBehaviour
         
     }
 
-    private void Initialize()
+    public void Initialize()
     {
         turnSpeed = stats.turnSpeed;
         maxSpeed = stats.maxSpeed;
@@ -33,6 +34,7 @@ public class Stats : MonoBehaviour
         currentHealth = stats.maxHealth;
 
         damage = stats.damage;
+        fireRate = stats.fireRate;
     }
 
     public void TakeDamage(int damage)
