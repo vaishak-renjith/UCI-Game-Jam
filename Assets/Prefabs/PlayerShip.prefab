@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 49830819656172112}
   - component: {fileID: 7866210584767265606}
   - component: {fileID: 1803549075051943078}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3108994499352398848}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ Transform:
   m_GameObject: {fileID: 3215597693475413556}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.26, y: 1.37, z: 0}
+  m_LocalPosition: {x: -2.7, y: 1.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -210,7 +210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3000227745494405381}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FirePoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ Transform:
   m_GameObject: {fileID: 5354763842905066843}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.31, y: 1.37, z: 0}
+  m_LocalPosition: {x: 2.67, y: 1.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -242,12 +242,14 @@ GameObject:
   m_Component:
   - component: {fileID: 7313373795745392197}
   - component: {fileID: 6793686222892917698}
+  - component: {fileID: 3580831222215959060}
   - component: {fileID: 1838342999490623884}
   - component: {fileID: 2237069084645517089}
   - component: {fileID: 5552238328391735367}
   - component: {fileID: 4162160380427916029}
   - component: {fileID: 8983121195834638800}
-  m_Layer: 0
+  - component: {fileID: 7003842929968663144}
+  m_Layer: 3
   m_Name: PlayerShip
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -316,7 +318,7 @@ SpriteRenderer:
   m_SortingLayerID: -6028393
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8357383291720354389, guid: 20863ceba807f424480956738a37afd5, type: 3}
+  m_Sprite: {fileID: -2311659948842064771, guid: 3a302c97950c58a4f9539e4b821c1d8c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -327,6 +329,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &3580831222215959060
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5635886722969670321}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 10.12, y: 12.52}
+  m_Direction: 0
 --- !u!50 &1838342999490623884
 Rigidbody2D:
   serializedVersion: 5
@@ -368,15 +407,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 57d25ef4dc967d8429b0c1b93a8db7f8, type: 2}
   Name: 
+  currentHealth: 100
+  damage: 5
+  rammingDamage: 5
+  fireRate: 0.2
   turnSpeed: 2
   maxSpeed: 100
   acceleration: 20
   driftFactor: 0.95
-  currentHealth: 100
-  healthbar: {fileID: 0}
-  damage: 5
-  fireRate: 0.2
   currency: 0
+  healthbar: {fileID: 7003842929968663144}
 --- !u!114 &5552238328391735367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,7 +450,7 @@ MonoBehaviour:
   - {fileID: 3000227745494405381}
   screenBuffer: 1
   canShoot: 0
-  stats: {fileID: 0}
+  stats: {fileID: 2237069084645517089}
 --- !u!114 &8983121195834638800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,4 +466,16 @@ MonoBehaviour:
   virtualCamera: {fileID: 0}
   ships:
   - {fileID: 7313373795745392197}
-  - {fileID: 0}
+--- !u!114 &7003842929968663144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5635886722969670321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d044410ab3583f64fb694d5c5fb5682b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarSprite: {fileID: 0}

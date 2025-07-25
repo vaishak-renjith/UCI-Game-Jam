@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
   Name: Player
+  maxHealth: 100
+  damage: 10
+  rammingDamage: 5
+  fireRate: 0.2
   turnSpeed: 2
   maxSpeed: 100
   acceleration: 20
   driftFactor: 0.95
-  maxHealth: 100
-  damage: 10

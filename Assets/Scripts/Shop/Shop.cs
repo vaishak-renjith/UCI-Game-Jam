@@ -11,10 +11,11 @@ public class Shop : MonoBehaviour
 
     public bool isShopOpen = false;
 
-    public int currency;
+    private Stats stats;
 
-    void Start()
+    void Awake()
     {
+        stats = FindAnyObjectByType<PlayerStats>();
         promptText.text = "dddddd";
     }
 
@@ -102,9 +103,9 @@ public class Shop : MonoBehaviour
     public void BuyItem(ShopItem item)
     {
         ShopItem shopItem = item.GetComponent<ShopItem>();
-        if (shopItem != null && currency >= shopItem.itemData.cost)
+        if (shopItem != null && stats.currency >= shopItem.itemData.cost)
         {
-            currency -= shopItem.itemData.cost;
+            stats.currency -= shopItem.itemData.cost;
             Debug.Log($"Bought {item.name} for {shopItem.itemData.cost} currency.");
             item.gameObject.SetActive(false);
             // Add item to player's inventory or apply its effect here

@@ -21,6 +21,7 @@ public class Enemy : Stats
 
     public override void Die()
     {
+        FindAnyObjectByType<PlayerStats>().currency += currency;
         onDeath.Invoke();
         base.Die();
     }
