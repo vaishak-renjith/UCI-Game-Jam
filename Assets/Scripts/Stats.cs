@@ -45,10 +45,10 @@ public class Stats : MonoBehaviour
         currentHealth -= damage;
         healthbar.UpdateHealth(stats.maxHealth, currentHealth);
             
-        if (currentHealth < 0) Die();
+        if (currentHealth <= 0) Die();
     }
 
-    private void Die()
+    public virtual void Die()
     {
         Destroy(gameObject);
     }

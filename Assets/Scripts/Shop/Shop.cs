@@ -9,12 +9,13 @@ public class Shop : MonoBehaviour
     private List<ShopItem> activeShopItems = new List<ShopItem>();
     public TextMeshProUGUI promptText;
 
+    public bool isShopOpen = false;
+
     public int currency;
 
     void Start()
     {
         promptText.text = "dddddd";
-        DisplayShopItems(new Vector2(0, 0), 30.0f); // Example position and spacing
     }
 
     void Update()
@@ -39,6 +40,8 @@ public class Shop : MonoBehaviour
 
     public void DisplayShopItems(Vector2 shopCenter, float spacing)
     {
+        if (isShopOpen) return;
+
         // Clear previous shop items
         foreach (var item in activeShopItems)
         {
@@ -62,6 +65,22 @@ public class Shop : MonoBehaviour
             activeShopItems.Add(shopItem);
             startX += spacing;
         }
+
+        isShopOpen = true;
+    }
+
+    public void CloseShop()
+    {
+        foreach (var item in activeShopItems)
+        {
+            if (item != null)
+                Destroy(item.gameObject);
+        }
+        activeShopItems.Clear();
+
+        promptText.text = "";
+
+        isShopOpen = false;
     }
 
     // if player is close to item, prompt to buy with E
@@ -89,10 +108,15 @@ public class Shop : MonoBehaviour
             Debug.Log($"Bought {item.name} for {shopItem.itemData.cost} currency.");
             item.gameObject.SetActive(false);
             // Add item to player's inventory or apply its effect here
+
         }
         else
         {
             Debug.Log("Not enough currency to buy this item.");
         }
+
+        GameManager.Instance.StartWave();
+
+        CloseShop();
     }
 }
