@@ -17,7 +17,8 @@ MonoBehaviour:
   damage: 10
   rammingDamage: 5
   fireRate: 0.2
-  turnSpeed: 2
+  turnSpeed: 2.5
   maxSpeed: 100
   acceleration: 20
   driftFactor: 0.95
+  currency: 5
