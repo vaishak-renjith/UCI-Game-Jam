@@ -17,10 +17,10 @@ public class EnemyConeShooter2D : MonoBehaviour
     public float bulletSpeed = 30f; // Might be good to set it faster than ships max speed
     [HideInInspector] public bool canShoot = false; // Only active ship can shoot
     private float fireTimer = 0f;
+    
     private Stats stats;
 
     Transform currentTarget;
-    float nextShotTime;
 
 
     private void Awake()

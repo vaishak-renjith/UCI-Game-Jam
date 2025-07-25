@@ -20,6 +20,9 @@ public class StatsSO : ScriptableObject
     public float acceleration = 100;
     public float driftFactor = .95f;
 
+    [Header("AstralForm")]
+    public float abilityDuration = 1f;
+
     [Header("Reward")]
     public int currency = 5;
 }

@@ -993,7 +993,7 @@ Transform:
   m_GameObject: {fileID: 781320478}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.633041, y: -0.038229644, z: -10}
+  m_LocalPosition: {x: -88.29061, y: -0.03822964, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2217,14 +2217,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1428344606373420614, guid: 6bfea1d46a0b2da4da721d79a892d4fb, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8700ad46f1dc5504683d5de3830489e0, type: 2}
+    - target: {fileID: 3657839893122144905, guid: 6bfea1d46a0b2da4da721d79a892d4fb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657839893122144905, guid: 6bfea1d46a0b2da4da721d79a892d4fb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3657839893122144905, guid: 6bfea1d46a0b2da4da721d79a892d4fb, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.7071068
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3657839893122144905, guid: 6bfea1d46a0b2da4da721d79a892d4fb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.7071068
+      value: 0.7071068
       objectReference: {fileID: 0}
+    - target: {fileID: 5552238328391735367, guid: 6bfea1d46a0b2da4da721d79a892d4fb, type: 3}
+      propertyPath: forms.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5552238328391735367, guid: 6bfea1d46a0b2da4da721d79a892d4fb, type: 3}
+      propertyPath: 'forms.Array.data[0]'
+      value: 
+      objectReference: {fileID: -2311659948842064771, guid: 3a302c97950c58a4f9539e4b821c1d8c, type: 3}
+    - target: {fileID: 5552238328391735367, guid: 6bfea1d46a0b2da4da721d79a892d4fb, type: 3}
+      propertyPath: 'forms.Array.data[1]'
+      value: 
+      objectReference: {fileID: 7364682651488144517, guid: 3a302c97950c58a4f9539e4b821c1d8c, type: 3}
     - target: {fileID: 5635886722969670321, guid: 6bfea1d46a0b2da4da721d79a892d4fb, type: 3}
       propertyPath: m_Name
       value: Ship1
@@ -2239,7 +2263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7313373795745392197, guid: 6bfea1d46a0b2da4da721d79a892d4fb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.038229644
+      value: -0.03822964
       objectReference: {fileID: 0}
     - target: {fileID: 7313373795745392197, guid: 6bfea1d46a0b2da4da721d79a892d4fb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2297,11 +2321,11 @@ SceneRoots:
   - {fileID: 1134312332}
   - {fileID: 144923550}
   - {fileID: 1866484083}
-  - {fileID: 329398885}
   - {fileID: 1275864658}
   - {fileID: 3891943448440030169}
   - {fileID: 1886774105}
   - {fileID: 1145223758}
+  - {fileID: 329398885}
   - {fileID: 36712391}
   - {fileID: 1515246671}
   - {fileID: 1269719546}

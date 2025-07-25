@@ -21,6 +21,9 @@ public class Stats : MonoBehaviour
     public float acceleration = 20;
     public float driftFactor = .95f;
 
+    [Header("AstralForm")]
+    public float abilityDuration = 1f;
+
     [Header("Reward")]
     public int currency = 0;
 
@@ -50,6 +53,8 @@ public class Stats : MonoBehaviour
         damage = stats.damage;
         rammingDamage = stats.rammingDamage;
         fireRate = stats.fireRate;
+
+        abilityDuration = stats.abilityDuration;
 
         currency = stats.currency;
     }
